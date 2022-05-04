@@ -2,8 +2,10 @@
 include("connect.php");
 $sql = "SELECT * FROM hospitals";
 $sql2= " Select * FROM therapies";
+$sql3="SELECT * FROM bioinformatics";
 $result = $mysqli->query($sql);
 $res=$mysqli-> query($sql2);
+$docs=$mysqli-> query($sql3);
 $mysqli->close(); 
 ?>
 
@@ -97,7 +99,7 @@ $mysqli->close();
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">visualize results</a></li>
+          <li><a class="nav-link scrollto" href="#contact">CONTACT US results</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -197,13 +199,13 @@ $mysqli->close();
             <div class="icon-box">
               <div class="icon"><i class="bx bx-gift"></i></div>
               <h4 class="title"><a href="">Research and Development Tools</a></h4>
-              <p class="description">Caris Life Sciences offers unparalleled precision medicine services that are designed to maximize the chances of success for clinical trials and address many patient accrual challenges facing biopharma partners in the world of precision medicine.​</p>
+              <p class="description">Medilab offers unparalleled precision medicine services that are designed to maximize the chances of success for clinical trials and address many patient accrual challenges facing biopharma partners in the world of precision medicine.​</p>
             </div>
 
             <div class="icon-box">
               <div class="icon"><i class="bx bx-atom"></i></div>
               <h4 class="title"><a href="">Prospective and Observational Research Studies</a></h4>
-              <p class="description">The Caris Life Sciences Observational Studies initiative is a collection of multicenter, prospective and observational outcomes tracking studies designed to collect data on the demographics, presentation, diagnosis, treatment, resource use, and outcomes of eligible patients who previously have undergone Caris Molecular Intelligence tumor profiling for treatment of solid tumor cancer.</p>
+              <p class="description">The Medilab Observational Studies initiative is a collection of multicenter, prospective and observational outcomes tracking studies designed to collect data on the demographics, presentation, diagnosis, treatment, resource use, and outcomes of eligible patients who previously have undergone Molecular Intelligence tumor profiling for treatment of solid tumor cancer.</p>
             </div>
 
           </div>
@@ -275,8 +277,8 @@ $mysqli->close();
 
 while($row=$result->fetch_assoc()){
 ?>
-<!--<div class="row"> -->
-<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+<div class="row"> 
+<div class="column">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-heartbeat"></i></div> 
 
@@ -287,10 +289,11 @@ echo $row["name"];?> </a></h4>
   <p><?php echo $row["description"];?></p>
            </div>
           </div>
-		<!--  </div> .
+		
 		 
 		  <?php
 		  } ?>
+		  </div>
 		 
 		 
 
@@ -375,14 +378,17 @@ echo $row["name"];?> </a></h4>
 			<input type="text" name="gender" class="form-control" id="gender" placeholder="gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
             <div class="validate"></div>
 			 </div>
-			<div class="col-md-4 form-group mt-3">
-              <select  id="type_of_test "class="form-select">
-                <option value="">Select type of test</option>
-                <option value="1">tumor test</option>
-                <option value="2">sequence test</option>
+			<div class="col-md-4 form-group mt-3"> 
+          <select name="type_of_test" id="doctor" class="form-select">
+                <option value="">Select Test</option>
+                <option value="Sequence">Sequence</option>
+                <option value="tumor">Tumor</option>
+                
               </select>
+		
+             
               <div class="validate"></div>
-            </div>
+           </div>
             <div class="col-md-4 form-group mt-3">
 			<input type="text" name="tumor_name" class="form-control" id="tumor_test" placeholder="type of tumor" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
 			
@@ -505,23 +511,33 @@ echo $row["name"];?> </a></h4>
     </section><!-- End Departments Section -->
 
     <!-- ======= Doctors Section ======= -->
-   <!-- <section id="doctors" class="doctors">
+   <<section id="doctors" class="doctors">
       <div class="container">
 
         <div class="section-title">
           <h2>Doctors</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Meet Our People​
+Get to know some of the Medilab team as they share what working at Medilab means to them.</p>
         </div>
+		<?php
+	
+
+$cnt=0;
+
+while($row=$docs->fetch_assoc()){
+	$cnt=$cnt+1 ;
+	$picc="assets/img/doctors/doctors-".$cnt.".jpg";
+?>
 
         <div class="row">
 
-          <div class="col-lg-6">
+          <div class="column">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src= <?php echo $picc?> class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Medical Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                <h4><?php echo $row["name"]; ?></h4>
+                <span><?php echo $row["description"]; ?></span>
+                <p><?php echo $row["time"]; ?></p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -531,8 +547,10 @@ echo $row["name"];?> </a></h4>
               </div>
             </div>
           </div>
+		  </div>
+<?php } ?>
 
-          <div class="col-lg-6 mt-4 mt-lg-0">
+         <!-- <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
@@ -584,10 +602,11 @@ echo $row["name"];?> </a></h4>
           </div>
 
         </div>
-
+-->
       </div>
     </section><!-- End Doctors Section -->
     <!-- ======= Frequently Asked Questions Section ======= -->
+	
     <section id="faq" class="faq section-bg">
       <div class="container">
 
@@ -762,7 +781,7 @@ echo $row["name"];?> </a></h4>
       <div class="container">
 
         <div class="section-title">
-          <h2>Gallery</h2>
+          <h2>Therapies</h2>
           <p>There are many types of cancer treatment. The types of treatment that you receive will depend on the type of cancer you have and how advanced it is.</p>
         </div>
       </div>
@@ -791,7 +810,7 @@ while($row=$res->fetch_assoc()){
 			<span><b> <?php echo $row["type"].":";?></b>
 			
 			<p>
-			<?php echo $row["cost"]; ?> <br> <?php echo $row["duration"]; ?></br>
+			<?php echo "Average cost:"." ".$row["cost"]; ?> <br> <?php echo "Duration:"." ".$row["duration"]; ?></br>
 </p>
 			</span> 
 		

@@ -5,8 +5,8 @@ $email=$_POST['email'];
 $phone=$_POST['phone'];
 $gender=$_POST['gender'];
 $date=$_POST['date'];
-$type_of_test=$_POST['type_of_test']
-$tumor_test=$POST['tumor_test'];
+$type_of_test=$_POST['type_of_test'];
+$tumor_name=$POST['tumor_name'];
 
 $stmt2=$con->prepare("SELECT id from patients WHERE email=? ");
 		$stmt2->bind_param("s", $email);
@@ -34,7 +34,7 @@ $stmt2=$con->prepare("SELECT id from patients WHERE email=? ");
 		$stmt=$con->prepare("insert into tumor_testing_orders(cost, date ,tumor_name, patient_id) values(50.5, ?, ?, ?");
 		 
 	
-		$stmt->bind_param("ssi",$date,$type_of_test,$patient_id);
+		$stmt->bind_param("ssi",$date,$tumor_name,$patient_id);
 		$stmt->execute();
 		$stmt->close();
 		}
