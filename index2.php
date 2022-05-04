@@ -1,7 +1,9 @@
 <?php 
 include("connect.php");
 $sql = "SELECT * FROM hospitals";
+$sql2= " Select * FROM therapies";
 $result = $mysqli->query($sql);
+$res=$mysqli-> query($sql2);
 $mysqli->close(); 
 ?>
 
@@ -51,8 +53,8 @@ $mysqli->close();
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">mitlab@gmail.com</a>
-        <i class="bi bi-phone"></i> +1 5589 55488 55
+        <i class="bi bi-envelope"></i> <a href="medilab39@gmail.com">medilab39@gmail..com</a>
+        <i class="bi bi-phone"></i> +961 76528107
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -125,7 +127,7 @@ $mysqli->close();
             <div class="content">
               <h3>Why Choose Medilab?</h3>
               <p>
-                We have many connections with global hospitals. With hundreds of bioinformatics experts for achieving the main task
+                We have many connections with global hospitals. With dozens of bioinformatics experts for achieving the main task
 				efficiently. 
 				Certified by NCBI.
               </p>
@@ -174,34 +176,34 @@ $mysqli->close();
  </section> -->
  
     <!-- ======= About Section ======= -->
-  <!--  <section id="about" class="about">
+   <section id="about" class="about">
       <div class="container-fluid">
 
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+            <a href="https://youtu.be/VBrBFFtJqPk" class="glightbox play-btn mb-4"></a>
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-            <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
+            <h3>We explore ways to improve patient care, enhance the healthcare delivery system, and transform precision medicine into reality.</h3>
             <p> .</p>
 
             <div class="icon-box">
               <div class="icon"><i class="bx bx-fingerprint"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <h4 class="title"><a href="">Scientific and Medical Publications​</a></h4>
+              <p class="description">We conduct and publish volumes of research to fulfill the promise of precision medicine and improve the lives of patients with cancer. Since 2011, our medical and scientific experts have authored more than 100 manuscripts in peer-reviewed medical and scientific journals, and more than 250 abstracts, posters, and presentations at leading industry conferences and symposiums that expound on our innovative platforms and technologies.</p>
             </div>
 
             <div class="icon-box">
               <div class="icon"><i class="bx bx-gift"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+              <h4 class="title"><a href="">Research and Development Tools</a></h4>
+              <p class="description">Caris Life Sciences offers unparalleled precision medicine services that are designed to maximize the chances of success for clinical trials and address many patient accrual challenges facing biopharma partners in the world of precision medicine.​</p>
             </div>
 
             <div class="icon-box">
               <div class="icon"><i class="bx bx-atom"></i></div>
-              <h4 class="title"><a href="">Dine Pad</a></h4>
-              <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus aut eligendi omnis</p>
+              <h4 class="title"><a href="">Prospective and Observational Research Studies</a></h4>
+              <p class="description">The Caris Life Sciences Observational Studies initiative is a collection of multicenter, prospective and observational outcomes tracking studies designed to collect data on the demographics, presentation, diagnosis, treatment, resource use, and outcomes of eligible patients who previously have undergone Caris Molecular Intelligence tumor profiling for treatment of solid tumor cancer.</p>
             </div>
 
           </div>
@@ -273,8 +275,8 @@ $mysqli->close();
 
 while($row=$result->fetch_assoc()){
 ?>
-<div class="row">
-<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+<!--<div class="row"> -->
+<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-heartbeat"></i></div> 
 
@@ -285,7 +287,7 @@ echo $row["name"];?> </a></h4>
   <p><?php echo $row["description"];?></p>
            </div>
           </div>
-		  </div>
+		<!--  </div> .
 		 
 		  <?php
 		  } ?>
@@ -665,6 +667,9 @@ echo $row["name"];?> </a></h4>
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
       <div class="container">
+	  <div class="section-title">
+          <h2>Reviews from employees</h2>
+		  </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
@@ -674,7 +679,7 @@ echo $row["name"];?> </a></h4>
                 <div class="testimonial-item">
                   <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                   <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <h4>Manager</h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                    I enjoy my management. The job itself is easy. Fast Growth opportunities are unlimited.
@@ -683,6 +688,7 @@ echo $row["name"];?> </a></h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
+			
 
             <div class="swiper-slide">
               <div class="testimonial-wrap">
@@ -704,7 +710,7 @@ echo $row["name"];?> </a></h4>
                 <div class="testimonial-item">
                   <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                   <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
+                  <h4>employee</h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                    Innovative, dedicated to helping cancer patients.
@@ -757,22 +763,45 @@ echo $row["name"];?> </a></h4>
 
         <div class="section-title">
           <h2>Gallery</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>There are many types of cancer treatment. The types of treatment that you receive will depend on the type of cancer you have and how advanced it is.</p>
         </div>
       </div>
+<?php
+	
+
+$cnt=0;
+
+while($row=$res->fetch_assoc()){
+	$cnt=$cnt+1 ;
+	$pic="assets/img/gallery/gallery-".$cnt.".jpg";
+?>
 
       <div class="container-fluid">
         <div class="row g-0">
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
-                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-              </a>
+			<div style="display:inline-block;vertical-align:top;">
+            <span> <a href=<?php echo $pic ?> class="galelry-lightbox"> 
+	
+			  
+                <img src= <?php echo $pic ?> alt="" class="img-fluid"	/> </a></span>
+				</div>
+           
+			<span><b> <?php echo $row["type"].":";?></b>
+			
+			<p>
+			<?php echo $row["cost"]; ?> <br> <?php echo $row["duration"]; ?></br>
+</p>
+			</span> 
+		
             </div>
           </div>
+		  </div>
+		  </div>
+<?php } ?>
 
-          <div class="col-lg-3 col-md-4">
+     <!--     <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="assets/img/gallery/gallery-2.jpg" class="galelry-lightbox">
                 <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
@@ -838,8 +867,8 @@ echo $row["name"];?> </a></h4>
       <div class="container">
 
         <div class="section-title">
-          <h2>Results</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Contact us</h2>
+          <p>Our customer support teams are available to answer any of your questions. For other inquiries, please fill out the contact form at the bottom of this page.</p>
         </div>
       </div>
 
@@ -861,20 +890,20 @@ echo $row["name"];?> </a></h4>
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>medilab39@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p> +961 76528107</p>
               </div>
 
             </div>
 
           </div>
 
-          <div class="col-lg-8 mt-5 mt-lg-0">
+      <!--    <div class="col-lg-8 mt-5 mt-lg-0">
 
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
@@ -900,9 +929,8 @@ echo $row["name"];?> </a></h4>
             </form>
 
           </div>
-
+-->
         </div>
-
       </div>
     </section><!-- End Contact Section -->
 
