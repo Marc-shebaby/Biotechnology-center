@@ -45,8 +45,9 @@ $stmt2=$con->prepare("SELECT id from patients WHERE email=? ");
 		$stmt->close();
 			
 		}
-		header('location:index2.php');
-	/*	require "vendor/autoload.php";
+		header('location index2.php');
+		?>
+	<!--	require "vendor/autoload.php";
 $robo = '.com';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -81,7 +82,7 @@ try {
 		
 		
 	
-		} */
+		} -->
 	
 	
-?>
+
