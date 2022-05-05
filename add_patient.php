@@ -1,5 +1,6 @@
 <?php
 include ("connect.php");
+
 $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
@@ -31,13 +32,14 @@ $stmt2=$con->prepare("SELECT id FROM patients WHERE email=? ");
 	
 
 		}
-		
-		if($type_of_test='tumor'){
 		$patient_id = "SELECT id FROM patients WHERE email='$email'";
 		
 
 		$rslt=mysqli_query($con, $patient_id);
 		$row=mysqli_fetch_row($rslt);
+		
+		if($type_of_test=='tumor'){
+		
 		$stmt=$con->prepare("insert into tumor_testing_orders(cost, date ,tumor_name, patients_id) values(50.5, ?, ?, ?)");
 		 
 	
@@ -46,49 +48,41 @@ $stmt2=$con->prepare("SELECT id FROM patients WHERE email=? ");
 		$stmt->close();
 		}
 		else{
-			$stmt=$con->prepare("insert into sequence_testing_orders(date ,cost,patients_id) values(?, 50.5, ?");
+			$stmt=$con->prepare("insert into sequence_testing_orders(date ,cost,patients_id) values(?, 50.5, ?)");
 			$stmt->bind_param("si",$date,$row[0]);
 		$stmt->execute();
 		$stmt->close();
 			
-		}
-		header('location:index2.php');
-	/*	require "vendor/autoload.php";
-$robo = '.com';
+		}	
+require 'includes/PHPMailer.php';
+require 'includes /SMTP.php';
+require 'includes/Exception.php';	
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-$developmentMode = true;
-$mailer = new PHPMailer($developmentMode);
-try {
-    $mailer->SMTPDebug = 2;
-    $mailer->isSMTP();
-    if ($developmentMode) {
-    $mailer->SMTPOptions = [
-        'ssl'=> [
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        ]
-    ];
-    }
-	    $mailer->Host = 'medilab39@gmail.com'; 
-    $mailer->SMTPAuth = true;
-    $mailer->Username = 'medilab39@gmail.com';
-    $mailer->Password = 'medilabisfuture1';
-    $mailer->SMTPSecure = 'tls';
-    $mailer->Port = 587;
-    $mailer->setFrom('medilab39@gmail.com', 'medilab');
-    $mailer->addAddress($email, $name);
-    $mailer->isHTML(true);
-    $mailer->Subject = 'Thank you for using medilab';
-    $mailer->Body = 'You have successufully submitted tour order, Results will be sent in 2 weeks from now.';
+$mail=new PHPMailer();
+$mail->isSMTP();
+$mail-> Host="smtp.gmail.com";
+$mail->SMTPAuth="true";
+$mail->SMTPSecure="tls";
+$mail->Port= "587";
+$mail->Username = 'medilab39@gmail.com';
+$mail->Password = 'medilabisfuture1';
+$mail->Subject= "Order test";
+	
+ 
+    $mail->setFrom('medilab39@gmail.com');
+	$mail->Body = 'You have successufully submitted your order. Results will be sent in 2 weeks from now.';
+    $mail->addAddress($email);
+    $mail->Send();
+    
 
+header('location:index2.php');
 	
 	 
 		
 		
 	
-		} */
 	
 	
 ?>

@@ -78,8 +78,8 @@ $mysqli->close();
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-        <!--  <li><a class="nav-link scrollto" href="#services">Services</a></li>
+    <!--      <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
           <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li> -->
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -99,7 +99,7 @@ $mysqli->close();
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">CONTACT US results</a></li>
+          <li><a class="nav-link scrollto" href="#contact">CONTACT US</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -183,11 +183,11 @@ $mysqli->close();
 
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
-            <a href="https://youtu.be/VBrBFFtJqPk" class="glightbox play-btn mb-4"></a>
+            <a href="https://youtu.be/y0P2qriA5dw" class="glightbox play-btn mb-4"></a>
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-            <h3>We explore ways to improve patient care, enhance the healthcare delivery system, and transform precision medicine into reality.</h3>
+            <h3>We explore ways to improve cancer patient care, enhance the healthcare delivery system, and transform precision medicine into reality.</h3>
             <p> .</p>
 
             <div class="icon-box">
@@ -224,7 +224,7 @@ $mysqli->close();
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="fas fa-user-md"></i>
-              <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
               <p>Bioinformaticians</p>
             </div>
           </div>
@@ -353,7 +353,7 @@ echo $row["name"];?> </a></h4>
           <p> Medilab can provide your doctor cutting-edge information to drive, and potentially alter, treatment decisions to change the course of your disease.</p>
         </div>
 
-        <form action="add_patient.php" method="post" role="form" <!--class="php-email-form"-->
+        <form action="add_patient.php" method="POST" role="form" <!--class="php-email-form"-->
           <div class="row">
             <div class="col-md-4 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
@@ -379,9 +379,9 @@ echo $row["name"];?> </a></h4>
             <div class="validate"></div>
 			 </div>
 			<div class="col-md-4 form-group mt-3"> 
-          <select name="type_of_test" id="doctor" class="form-select">
-                <option value="">Select Test</option>
-                <option value="Sequence">Sequence</option>
+          <select name="type_of_test" id="type_of_test" class="form-control custom-select">
+                <option>Select Test</option>
+                <option value="sequence">Sequence</option>
                 <option value="tumor">Tumor</option>
                 
               </select>
@@ -406,7 +406,9 @@ echo $row["name"];?> </a></h4>
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div> -->
           <div class="text-center"><button type="submit">Order a Test</button></div>
-		  
+		  <div class="text-center">
+		  <a href="cancel_order.php">
+		  <button type="button">Cancel a test</button>
         </form>
 
       </div> 
@@ -515,7 +517,7 @@ echo $row["name"];?> </a></h4>
       <div class="container">
 
         <div class="section-title">
-          <h2>Doctors</h2>
+          <h2>Bioinformaticists</h2>
           <p>Meet Our People​
 Get to know some of the Medilab team as they share what working at Medilab means to them.</p>
         </div>
